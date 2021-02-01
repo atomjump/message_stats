@@ -13,11 +13,8 @@ linux command line> mysql -u root -p
 [enter database password]
 use atomjump;			[or your database name]
 
-#Get a list of the most popular forums in the last week
-SELECT int_layer_id, COUNT(var_shouted) AS shout_count, date_when_shouted FROM tbl_ssshout WHERE date_when_shouted >= curdate() - INTERVAL DAYOFWEEK(curdate())+6 DAY GROUP BY int_layer_id ORDER BY shout_count DESC;
-
-#And get details of a particular forum with e.g. (for forum 19)
-SELECT * FROM tbl_layer WHERE int_layer_id = 19\G
+#Get a list of the most popular 20 forums in the last week
+SELECT tbl_ssshout.int_layer_id, tbl_layer.var_title, COUNT(tbl_ssshout.var_shouted) AS shout_count, MAX(tbl_ssshout.date_when_shouted) AS last_message FROM tbl_ssshout LEFT JOIN tbl_layer ON tbl_ssshout.int_layer_id = tbl_layer.int_layer_id WHERE date_when_shouted >= curdate() - INTERVAL DAYOFWEEK(curdate())+6 DAY GROUP BY int_layer_id ORDER BY shout_count DESC LIMIT 20;
 ```
 
 And then further queries are available in the file queries.sql.
