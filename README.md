@@ -21,3 +21,7 @@ SELECT * FROM tbl_layer WHERE int_layer_id = 19;
 ```
 
 And then further queries are available in the file queries.sql.
+
+## Future development
+
+* We will need to build a more extensive interface and provide other approaches to detection, also.
