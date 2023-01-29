@@ -1,4 +1,7 @@
 # message_stats
+
+__WARNING: this project has now moved to https://src.atomjump.com/atomjump/message_stats.git__
+
 Statistical reports for an AtomJump Messaging installation
 
 
